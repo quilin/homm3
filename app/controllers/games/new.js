@@ -41,17 +41,6 @@ export default E.Controller.extend({
 			this.get('model.maps.[]').forEach(function (m) {
 				m.set('selected', m === map);
 			});
-
-			var _this = this;
-			var playersToCreate = Array(this.get('selectedMap.players'));
-			var colors = ['a55', 'a5a', 'aa5', 'aaa', '555', '55a', '5a5', '5aa'];
-			for (var i = 0; i < playersToCreate.length; ++i) {
-				playersToCreate[i] = this.store.createRecord('player', {
-					color: '#' + colors[i]
-				});
-			}
-
-			this.set('playersToCreate', E.A(playersToCreate));
 		},
 		'start': function () {
 			var map = this.get('selectedMap');
