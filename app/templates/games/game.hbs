@@ -1,0 +1,27 @@
+<div class="game-toolbar">
+	{{mini-map map=model.map}}
+
+	<div class="game-toolbar-actions-wrapper">
+		<div class="game-toolbar-list game-toolbar-castles">
+			{{#each content.player.castles as |castle|}}
+				{{castle.type}}
+			{{/each}}
+		</div>
+		<div class="game-toolbar-list game-toolbar-heroes">
+			{{#each content.player.heroes as |hero|}}
+				{{hero.level}}
+			{{/each}}
+		</div>
+		<div class="game-toolbar-list game-toolbar-actions">
+			{{!-- todo --}}
+			<button {{action 'endTurn'}}>END TURN</button>
+		</div>
+	</div>
+
+	<div class="game-board-bottom-panel">
+		{{model.board.day}}
+	</div>
+</div>
+<div class="game-board">
+	<div class="game-board-bottom-panel"></div>
+</div>
