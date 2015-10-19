@@ -1,0 +1,24 @@
+.newGame-map-info,
+.newGame-actions {
+	float: right;
+	width: 300px;
+	margin-left: 30px;
+}
+.newGame-actions {
+	clear: right;
+}
+
+.newGame-maps {
+	overflow: hidden;
+}
+.anygrid(10, maps-table);
+.maps-table {
+	cursor: pointer;
+
+	&.selected {
+		background: #eee;
+	}
+}
+.maps-table-head {
+	border-bottom: 1px solid #ccc;
+}

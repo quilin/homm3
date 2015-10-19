@@ -1,0 +1,7 @@
+{{#each model as |game|}}
+	{{#link-to 'games.game' game.id}}{{game.map.name}}{{/link-to}}
+{{else}}
+	No games
+{{/each}}
+
+{{#link-to 'index'}}Back to main menu{{/link-to}}

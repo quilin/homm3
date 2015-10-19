@@ -1,0 +1,36 @@
+.anygrid(@cols, @name) when (isnumber(@cols)) {
+	.@{name} {
+		padding-right: ((@cols - 5) / @cols) * 100%;
+		position: relative;
+	    box-sizing: border-box;
+	}
+
+	.@{name}:before,
+	.@{name}:after,
+	.@{name}-row:before,
+	.@{name}-row:after {
+		clear: both;
+		content: '';
+		display: block;
+	}
+
+	.@{name}-first {
+		clear: left;
+	}
+
+	.loop (@i) when (@i > 0) {
+		.@{name}-span-@{i} {
+			float: left;
+			position: relative;
+			margin-right: -@i * 20%;
+			width: @i * 20%;
+		}
+		.@{name}-col-@{i} {
+			left: (@i - 1) * 20%;
+		}
+		.loop(@i - 1);
+	}
+	.loop(@cols);
+}
+
+@board-border: 4px solid #777;

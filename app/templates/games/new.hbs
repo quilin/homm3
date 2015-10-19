@@ -1,0 +1,31 @@
+<div class="newGame-map-info">
+	{{#if selectedMap}}
+		<h2>{{selectedMap.name}}</h2>
+		{{selectedMap.description}}
+	{{else}}
+		&nbsp;
+	{{/if}}
+</div>
+<div class="newGame-actions">
+	{{#link-to 'index'}}Back to main menu{{/link-to}}
+	<a href='javascript:void(0)' {{action 'start'}}>Start game</a>
+</div>
+
+<div class="newGame-maps">
+	<div class="maps-table-row maps-table maps-table-head">
+		<div class="maps-table-col-1 maps-table-span-1">#</div>
+		<div class="maps-table-col-2 maps-table-span-7" {{action 'orderMaps' 'name'}}>Name</div>
+		<div class="maps-table-col-9 maps-table-span-1" {{action 'orderMaps' 'size'}}>Size</div>
+		<div class="maps-table-col-10 maps-table-span-1" {{action 'orderMaps' 'players'}}>Players</div>
+	</div>
+	{{#each model.maps as |map|}}
+		<div {{action 'selectMap' map}} class="maps-table-row maps-table {{if map.selected 'selected'}}">
+			<div class="maps-table-col-1 maps-table-span-1">{{map.index}}</div>
+			<div class="maps-table-col-2 maps-table-span-7">{{map.name}}</div>
+			<div class="maps-table-col-9 maps-table-span-1">{{map.size}}</div>
+			<div class="maps-table-col-10 maps-table-span-1">{{map.players}}</div>
+		</div>
+	{{else}}
+		No maps available
+	{{/each}}
+</div>
