@@ -8,7 +8,7 @@ Heroes of Might &amp; Magic 3 on Emberjs
 3. Run NodeJS command line
 4. >> npm install -g bower
 5. >> npm install -g ember-cli
-6. >> cd // repository
+6. >> cd [repository dir]
 7. >> npm install
 8. >> bower install
 9. >> ember server
