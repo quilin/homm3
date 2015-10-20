@@ -62,10 +62,12 @@ export default E.Controller.extend({
 					color: colors[i]
 				}).save());
 				heroesToCreate.push(this.store.createRecord('hero', {
-					name: 'Hero ' + colors[i]
+					name: 'Hero ' + colors[i],
+					position: { x: 10, y: 10 }
 				}).save());
 				castlesToCreate.push(this.store.createRecord('castle', {
-					type: 'Castle ' + colors[i]
+					type: 'Castle ' + colors[i],
+					position: { x: 8, y: 8 }
 				}).save());
 			}
 

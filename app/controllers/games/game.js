@@ -17,19 +17,14 @@ export default E.Controller.extend({
 
 		'endTurn': function () {
 			var _this = this;
-			SyncPromise({
-				board: this.get('model.board'),
-				players: this.get('model.board.players.[]')
-			}).then(function (r) {
-				var board = _this.get('model.board');
-				var players = _this.get('model.board.players.[]');
-				if (board.get('turn') === players.get('length') - 1) {
-					board.set('turn', 0);
-					board.incrementProperty('day');
-				} else {
-					board.incrementProperty('turn');
-				}
-			});
+			var board = _this.get('model.board');
+			var players = _this.get('model.board.players.[]');
+			if (board.get('turn') === players.get('length') - 1) {
+				board.set('turn', 0);
+				board.incrementProperty('day');
+			} else {
+				board.incrementProperty('turn');
+			}
 		}
 	}
 });

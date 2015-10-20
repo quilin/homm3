@@ -3,11 +3,11 @@ import E from 'ember';
 export default E.Controller.extend({
 	actions: {
 		'createTestMap': function () {
-			var generateCells = function (x, y) {
+			var generateCells = function (x) {
 				var rows = [];
 				for (var i = 0; i < x; ++i) {
 					var cells = [];
-					for (var j = 0; j < y; ++j) {
+					for (var j = 0; j < x; ++j) {
 						cells.push({
 							passable: Math.random() > 0.3,
 							terrain: Math.ceil(Math.random() * 4) / 4 + 1
@@ -26,7 +26,7 @@ export default E.Controller.extend({
 					players: 2,
 					size: 'S',
 
-					cells: generateCells(10, 10)
+					cells: generateCells(32)
 				}).save();
 			});
 		}
