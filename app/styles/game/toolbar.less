@@ -6,3 +6,33 @@
 	border: @board-border;
 	border-left: none;
 }
+
+.game-toolbar-list {
+	height: 350px;
+	border-bottom: @board-border;
+}
+
+.game-toolbar-castles {
+	float: right;
+	width: 80px;
+}
+
+
+.game-toolbar-heroes {
+	float: left;
+	width: 100px;
+}
+.game-toolbar-hero {
+	border: 1px solid #ccc;
+	height: 45px;
+
+	&.selected {
+		background-color: #ccc;
+	}
+}
+
+
+.game-toolbar-actions {
+	overflow: hidden;
+	width: 110px;
+}

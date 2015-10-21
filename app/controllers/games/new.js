@@ -1,10 +1,11 @@
 import E from 'ember';
 import SyncPromise from 'homm3/extensions/sync-promise';
+import R from 'homm3/extensions/random-extensions';
 
 export default E.Controller.extend({
 	selectedMap: function () {
 		var result = null;
-		this.get('model.maps.[]').forEach(function (m, i) {
+		this.get('model.maps.[]').forEach(function (m) {
 			if (m.selected) {
 				result = m;
 			}
@@ -62,12 +63,16 @@ export default E.Controller.extend({
 					color: colors[i]
 				}).save());
 				heroesToCreate.push(this.store.createRecord('hero', {
-					name: 'Hero ' + colors[i],
-					position: { x: 10, y: 10 }
+					name: 'H_' + colors[i] + '_1',
+					position: R('position', 0, 5)
+				}).save());
+				heroesToCreate.push(this.store.createRecord('hero', {
+					name: 'H_' + colors[i] + '_2',
+					position: R('position', 5, 10)
 				}).save());
 				castlesToCreate.push(this.store.createRecord('castle', {
 					type: 'Castle ' + colors[i],
-					position: { x: 8, y: 8 }
+					position: R('position', 10, 20)
 				}).save());
 			}
 
@@ -94,7 +99,7 @@ export default E.Controller.extend({
 				});
 
 				r.heroes.forEach(function (h, i) {
-					h.set('player', r.players[i]);
+					h.set('player', r.players[Math.floor(i / 2)]);
 				});
 				r.castles.forEach(function (c, i) {
 					c.set('player', r.players[i]);

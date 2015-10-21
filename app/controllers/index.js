@@ -1,4 +1,5 @@
 import E from 'ember';
+import R from 'homm3/extensions/random-extensions';
 
 export default E.Controller.extend({
 	actions: {
@@ -9,7 +10,7 @@ export default E.Controller.extend({
 					var cells = [];
 					for (var j = 0; j < x; ++j) {
 						cells.push({
-							passable: Math.random() > 0.3,
+							passable: R('bool', 0.7),
 							terrain: Math.ceil(Math.random() * 4) / 4 + 1
 						});
 					}

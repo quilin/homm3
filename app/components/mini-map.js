@@ -12,7 +12,7 @@ export default E.Component.extend({
 
 		for (var i = 0; i < mapRows.length; ++i) {
 			for (var j = 0; j < mapRows[i].length; ++j) {
-				ctx.fillStyle = mapRows[i][j].passable ? '#5a5' : '#a55' ;
+				ctx.fillStyle = mapRows[i][j].passable ? '#ddf' : '#777' ;
 				ctx.fillRect(j * delta, i * delta, delta, delta);
 				ctx.stroke();
 			}
